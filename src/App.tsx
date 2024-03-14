@@ -1,17 +1,21 @@
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
 import { useControls } from "leva";
-import Floor from "components/Floor";
+import Floor from "./components/Floor";
+import Car from "./components/Car/Car";
 
 function App() {
   const bgValue = useControls({ backgroundColor: "#fff" });
 
   return (
-    <Canvas camera={{ position: [0, 15, 4] }}>
+    <Canvas camera={{ position: [3, 2, 4] }}>
       <color attach={"background"} args={[bgValue.backgroundColor]} />
-      <Physics>
+      <ambientLight />
+      <directionalLight position={[0, 5, 5]} />
+      <Physics gravity={[0, -2.6, 0]}>
         <Debug>
-          <Floor rotation={[-Math.PI / 2, 0, 0]} />
+          <Car />
+          <Floor />
         </Debug>
       </Physics>
     </Canvas>

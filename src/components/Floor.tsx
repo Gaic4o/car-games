@@ -1,14 +1,21 @@
-import { Triplet } from "@react-three/cannon";
-import { MeshProps } from "@react-three/fiber";
+import { usePlane } from "@react-three/cannon";
+import { useRef } from "react";
 
-interface FloorProps extends MeshProps {
-  position?: Triplet;
-  rotation?: Triplet;
-}
+const Floor: React.FC = () => {
+  const meshRef = useRef<any>(null);
 
-const Floor: React.FC<FloorProps> = (props) => {
+  usePlane(
+    () => ({
+      args: [15, 15],
+      mass: 1,
+      type: "Static",
+      rotation: [-Math.PI / 2, 0, 0],
+    }),
+    meshRef
+  );
+
   return (
-    <mesh {...props} receiveShadow>
+    <mesh ref={meshRef} receiveShadow>
       <planeGeometry args={[15, 15]} />
       <meshStandardMaterial color="black" wireframe />
     </mesh>
