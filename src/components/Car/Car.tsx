@@ -4,9 +4,12 @@ import DummyWheel from "./DummyWheel";
 import DummyCarBody from "./DummyCarBody";
 import { useVehicleControls } from "../../hooks/useVehicleControls";
 import { useVehicleWheelConfigurations } from "../../hooks/useVehicleWheelConfigurations";
-import { Group } from "three";
+import { Group, Vector3 } from "three";
+import useCameraFollower from "../../hooks/useCameraFollower";
+import { useFrame } from "@react-three/fiber";
 
 const Car = () => {
+  const { cameraPivot } = useCameraFollower();
   const width: number = 0.16;
   const height: number = 0.12;
   const front: number = 0.17;
@@ -52,6 +55,15 @@ const Car = () => {
     vehicleRef
   );
   useVehicleControls({ vehicleApi });
+
+  useFrame(() => {
+    if (chassisBody.current) {
+      const worldPosition = new Vector3();
+      chassisBody.current.getWorldPosition(worldPosition);
+      cameraPivot.position.lerp(worldPosition, 0.9);
+    }
+  });
+
   return (
     <group ref={vehicle}>
       <group ref={chassisBody}>
