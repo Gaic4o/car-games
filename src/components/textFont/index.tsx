@@ -23,7 +23,7 @@ const CustomText3D: React.FC<TextProps> = ({ text, position }) => (
   </Text3D>
 );
 
-const TextFont = () => {
+export function TextFont() {
   const setStart = useSetRecoilState(isStartScene);
 
   const controlInstructions: TextProps[] = [
@@ -44,6 +44,4 @@ const TextFont = () => {
       ))}
     </motion.group>
   );
-};
-
-export default TextFont;
+}
