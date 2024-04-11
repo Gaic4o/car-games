@@ -11,7 +11,7 @@ export function RoadSign() {
       args: [0.1, 0.1, 1, 8],
       type: "Static",
       mass: 1,
-      position: [-0.1, 0.46, 2.5],
+      position: [2, 0.46, 2.5],
       onCollide: handleCollision,
     }),
     useRef(null)

@@ -4,7 +4,7 @@ const useVehicleWheelConfigurations = () => {
   const front: number = 0.17;
   const wheelRadius: number = 0.05;
   const mass: number = 150;
-  const position: [number, number, number] = [0, 0.5, 0];
+  const position: [number, number, number] = [2, 0.5, 0];
   const chassisBodyArgs: [number, number, number] = [width, height, front * 2];
 
   return {
