@@ -32,6 +32,7 @@ export function RoadSign() {
   }, [active]);
 
   return (
+    // @ts-ignore I don't know the type.
     <group ref={ref}>
       <mesh
         castShadow
@@ -49,16 +50,19 @@ export function RoadSign() {
       >
         <mesh
           castShadow
+          // @ts-ignore I don't know the type.
           geometry={nodes.Object_1.geometry}
           material={materials["WoodLight.001"]}
         />
         <mesh
           castShadow
+          // @ts-ignore I don't know the type.
           geometry={nodes.Object_1_2.geometry}
           material={materials["WoodLight.002"]}
         />
         <mesh
           castShadow
+          // @ts-ignore I don't know the type.
           geometry={nodes.Object_1_3.geometry}
           material={materials["WoodLight.003"]}
         />
