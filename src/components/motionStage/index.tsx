@@ -21,9 +21,9 @@ export const MotionStage = () => {
     window.open(url, "_blank");
   };
 
-  const handleCollision = (e: any) => {
-    console.log(e, "이벤트");
-    if (e.collisionFilters.bodyFilterGroup === 5) {
+  // @ts-ignore I don't know the event type.
+  const handleCollision = (event) => {
+    if (event.collisionFilters.bodyFilterGroup === 5) {
       setInfo(true);
     }
   };
@@ -39,9 +39,11 @@ export const MotionStage = () => {
   const { nodes, materials } = useGLTF(`/models/popup.glb`);
 
   return (
+    // @ts-ignore I don't know the type.
     <group ref={ref} scale={0.3} onClick={onHandleHistory}>
       <mesh
         castShadow
+        // @ts-ignore I don't know the type.
         geometry={nodes.body.geometry}
         material={materials.Material}
         position={[0.004, 0.15, 0.065]}

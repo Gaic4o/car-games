@@ -27,6 +27,7 @@ export function Tree(props: BoxProps) {
     ...props,
   }));
 
+  // @ts-ignore I don't know the type.
   const handleCollision = (e: any) => {
     if (e.collisionFilters.bodyFilterGroup === 5) {
       setInfo(true);

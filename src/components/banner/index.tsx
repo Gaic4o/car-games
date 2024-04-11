@@ -2,24 +2,19 @@ import { useBox } from "@react-three/cannon";
 import { Html, useTexture } from "@react-three/drei";
 import { useEffect, useState } from "react";
 
+type CollisionEventHandler = () => void;
+type HistoryHandler = () => void;
+
 export function Banner() {
   const texture = useTexture(`/images/banner.png`);
   const [info, setInfo] = useState(false);
-  const [ref] = useBox(() => ({
-    isTrigger: false,
-    mass: 1,
-    args: [5, 2, 2],
-    position: [1, 1, -5],
-    type: "Static",
-    onCollide: handleCollision,
-  }));
 
-  const onHandleHistory = () => {
+  const onHandleHistory: HistoryHandler = () => {
     const url = "https://minsu-dev.vercel.app/";
     window.open(url, "_blank");
   };
 
-  const handleCollision = () => {
+  const handleCollision: CollisionEventHandler = () => {
     setInfo(true);
   };
 
@@ -31,8 +26,18 @@ export function Banner() {
     return () => clearTimeout(timeout);
   }, [info]);
 
+  const [ref] = useBox(() => ({
+    isTrigger: false,
+    mass: 1,
+    args: [5, 2, 2],
+    position: [1, 1, -5],
+    type: "Static",
+    onCollide: handleCollision,
+  }));
+
   return (
-    <mesh ref={ref as any} castShadow onClick={onHandleHistory}>
+    // @ts-ignore I don't know the type.
+    <mesh ref={ref} castShadow onClick={onHandleHistory}>
       <boxGeometry args={[5, 2, 2]} />
       <meshStandardMaterial map={texture} transparent />
       {info ? (

@@ -2,7 +2,7 @@ import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
 
 const Floor: React.FC = () => {
-  const meshRef = useRef<any>(null);
+  const meshRef = useRef(null);
 
   usePlane(
     () => ({
