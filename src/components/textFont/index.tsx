@@ -33,7 +33,6 @@ const TextFont = () => {
   ];
   return (
     <motion.group
-      onUpdate={() => console.log("진행중")}
       onAnimationComplete={() => setStart(true)}
       animate={{ y: [-2, 0], scale: [0, 1] }}
       transition={{ delay: 1.5, duration: 0.3 }}

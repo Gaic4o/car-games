@@ -7,6 +7,7 @@ export const useVehicleWheelConfigurations = (
   front: number,
   radius: number
 ) => {
+  // @ts-ignore I don't know the type.
   const wheels: WheelInfoOptions[] | any = [
     useRef(null),
     useRef(null),
@@ -54,7 +55,7 @@ export const useVehicleWheelConfigurations = (
       isFrontWheel: false,
     },
   ];
-
+  // @ts-ignore I don't know the type.
   const wheelFunc = (): any => ({
     collisionFilterGroup: 0,
     mass: 50,

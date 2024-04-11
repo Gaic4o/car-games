@@ -1,4 +1,12 @@
-const Picture = ({ nodes, texture }: any) => {
+import { Texture } from "three";
+
+interface PictureProps {
+  // @ts-ignore I don't know the type.
+  nodes: any;
+  texture: Texture;
+}
+
+const Picture = ({ nodes, texture }: PictureProps) => {
   return (
     <mesh
       castShadow
