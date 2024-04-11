@@ -2,6 +2,7 @@ import { Text3D } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 import { useSetRecoilState } from "recoil";
 import { isStartScene } from "../../utils/atom";
+import React from "react";
 
 interface TextProps {
   text: string;

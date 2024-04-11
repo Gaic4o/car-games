@@ -9,7 +9,7 @@ import useVehicleConfiguration from "../../hooks/useVehicleConfiguration";
 import CarBody from "./CarBody";
 import Wheel from "./Wheel";
 
-const Car = () => {
+export function Car() {
   const { cameraPivot } = useCameraFollower();
   const vehicleConfig = useVehicleConfiguration();
   const chassisRef = useRef<Group>(null);
@@ -75,6 +75,4 @@ const Car = () => {
       <Wheel wheelRef={wheels[3]} radius={vehicleConfig.wheelRadius} />
     </group>
   );
-};
-
-export default Car;
+}

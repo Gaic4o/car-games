@@ -11,7 +11,7 @@ export function RoadSign() {
       args: [0.1, 0.1, 1, 8],
       type: "Static",
       mass: 1,
-      position: [-0.1, 0.46, 2.5],
+      position: [2, 0.46, 2.5],
       onCollide: handleCollision,
     }),
     useRef(null)
@@ -32,6 +32,7 @@ export function RoadSign() {
   }, [active]);
 
   return (
+    // @ts-ignore I don't know the type.
     <group ref={ref}>
       <mesh
         castShadow
@@ -49,16 +50,19 @@ export function RoadSign() {
       >
         <mesh
           castShadow
+          // @ts-ignore I don't know the type.
           geometry={nodes.Object_1.geometry}
           material={materials["WoodLight.001"]}
         />
         <mesh
           castShadow
+          // @ts-ignore I don't know the type.
           geometry={nodes.Object_1_2.geometry}
           material={materials["WoodLight.002"]}
         />
         <mesh
           castShadow
+          // @ts-ignore I don't know the type.
           geometry={nodes.Object_1_3.geometry}
           material={materials["WoodLight.003"]}
         />
