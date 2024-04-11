@@ -1,7 +1,7 @@
 import { usePlane } from "@react-three/cannon";
 import { useRef } from "react";
 
-const Floor: React.FC = () => {
+export function Floor() {
   const meshRef = useRef(null);
 
   usePlane(
@@ -20,6 +20,4 @@ const Floor: React.FC = () => {
       <meshStandardMaterial color="black" wireframe />
     </mesh>
   );
-};
-
-export default Floor;
+}
