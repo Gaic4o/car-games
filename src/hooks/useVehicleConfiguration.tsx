@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-
 const useVehicleWheelConfigurations = () => {
   const width: number = 0.16;
   const height: number = 0.12;

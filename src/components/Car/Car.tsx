@@ -1,13 +1,13 @@
 import { useCompoundBody, useRaycastVehicle } from "@react-three/cannon";
 import { useRef } from "react";
-import DummyWheel from "./DummyWheel";
-import DummyCarBody from "./DummyCarBody";
 import { useVehicleControls } from "../../hooks/useVehicleControls";
 import { useVehicleWheelConfigurations } from "../../hooks/useVehicleWheelConfigurations";
 import { Group, Vector3 } from "three";
 import useCameraFollower from "../../hooks/useCameraFollower";
 import { useFrame } from "@react-three/fiber";
 import useVehicleConfiguration from "../../hooks/useVehicleConfiguration";
+import CarBody from "./CarBody";
+import Wheel from "./Wheel";
 
 const Car = () => {
   const { cameraPivot } = useCameraFollower();
@@ -17,6 +17,7 @@ const Car = () => {
 
   const [chassisBody] = useCompoundBody(
     () => ({
+      collisionFilterGroup: 5,
       position: vehicleConfig.position,
       mass: vehicleConfig.mass,
       rotation: [0, Math.PI, 0],
@@ -66,12 +67,12 @@ const Car = () => {
   return (
     <group ref={vehicle}>
       <group ref={chassisBody}>
-        <DummyCarBody />
+        <CarBody />
       </group>
-      <DummyWheel wheelRef={wheels[0]} radius={vehicleConfig.wheelRadius} />
-      <DummyWheel wheelRef={wheels[1]} radius={vehicleConfig.wheelRadius} />
-      <DummyWheel wheelRef={wheels[2]} radius={vehicleConfig.wheelRadius} />
-      <DummyWheel wheelRef={wheels[3]} radius={vehicleConfig.wheelRadius} />
+      <Wheel wheelRef={wheels[0]} radius={vehicleConfig.wheelRadius} />
+      <Wheel wheelRef={wheels[1]} radius={vehicleConfig.wheelRadius} />
+      <Wheel wheelRef={wheels[2]} radius={vehicleConfig.wheelRadius} />
+      <Wheel wheelRef={wheels[3]} radius={vehicleConfig.wheelRadius} />
     </group>
   );
 };

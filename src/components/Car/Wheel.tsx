@@ -1,4 +1,4 @@
-const DummyWheel = ({ wheelRef, radius }: any) => {
+const Wheel = ({ wheelRef, radius }: any) => {
   return (
     <group ref={wheelRef}>
       <mesh rotation={[0, 0, -Math.PI / 2]}>
@@ -9,4 +9,4 @@ const DummyWheel = ({ wheelRef, radius }: any) => {
   );
 };
 
-export default DummyWheel;
+export default Wheel;

@@ -1,7 +1,5 @@
 import { useBox } from "@react-three/cannon";
 import { Html, useGLTF, useTexture } from "@react-three/drei";
-import { useRecoilValue } from "recoil";
-import { stage1 } from "../../utils/atom";
 import Picture from "../picture";
 import { useEffect, useState } from "react";
 
