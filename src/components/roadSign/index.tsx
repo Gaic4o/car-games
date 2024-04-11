@@ -16,7 +16,7 @@ export function RoadSign() {
     }),
     useRef(null)
   );
-
+  // @ts-ignore I don't know the type.
   const handleCollision = (e) => {
     if (e.collisionFilters.bodyFilterGroup === 5) {
       setActive(true);
@@ -37,6 +37,7 @@ export function RoadSign() {
         castShadow
         position={[0, -0.45, 0]}
         scale={0.2}
+        // @ts-ignore I don't know the type.
         geometry={nodes.Object_1_1.geometry}
         material={materials.Wood}
       />

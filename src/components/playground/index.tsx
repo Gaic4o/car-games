@@ -1,7 +1,7 @@
-import React, { useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useTrimesh } from "@react-three/cannon";
-import { TextureLoader } from "three";
+import { Mesh, TextureLoader } from "three";
 
 export function PlayGround() {
   const { nodes, materials } = useGLTF(`/models/play_el.glb`);
@@ -12,11 +12,13 @@ export function PlayGround() {
     return matcapTexture;
   }, []);
 
+  const playMesh = nodes.play as Mesh;
+
   const [ref] = useTrimesh(
     () => ({
       args: [
-        nodes.play.geometry.attributes.position.array,
-        nodes.play.geometry.index.array,
+        playMesh.geometry.attributes.position.array,
+        playMesh.geometry.index !== null ? playMesh.geometry.index.array : [],
       ],
       type: "Static",
       rotation: [0, Math.PI / 2, 0],
@@ -28,8 +30,9 @@ export function PlayGround() {
   return (
     <mesh
       castShadow
+      // @ts-ignore I don't know the type.
       ref={ref}
-      geometry={nodes.play.geometry}
+      geometry={playMesh.geometry}
       material={materials["Material.001"]}
     >
       <meshMatcapMaterial matcap={matcapTexture} />
