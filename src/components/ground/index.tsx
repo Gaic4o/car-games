@@ -8,12 +8,12 @@ import { Banner } from "../banner";
 import { MotionStage } from "../motionStage";
 import { Tree } from "../tree";
 import { BowlingPin } from "../bowlingPin";
+import { Ball } from "../ball";
 import { useRecoilValue } from "recoil";
 import { isStartScene } from "../../utils/atom";
 import { createBowlingPinPositions } from "../../utils";
 import { Canvas } from "@react-three/fiber";
-import { Ball } from "../ball";
-import { Car } from "../car";
+import { Car } from "../Car";
 
 function Trees() {
   return (

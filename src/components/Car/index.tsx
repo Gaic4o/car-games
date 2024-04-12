@@ -6,8 +6,8 @@ import { Group, Vector3 } from "three";
 import useCameraFollower from "../../hooks/useCameraFollower";
 import { useFrame } from "@react-three/fiber";
 import useVehicleConfiguration from "../../hooks/useVehicleConfiguration";
-import CarBody from "./CarBody";
-import Wheel from "./Wheel";
+import CarBody from "./part/CarBody";
+import Wheel from "./part/Wheel";
 
 export function Car() {
   const { cameraPivot } = useCameraFollower();
